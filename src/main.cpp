@@ -2,7 +2,7 @@
 
 void setup() {
     // put your setup code here, to run once:
-    delay(500);
+    delay(250);
     Serial.begin(115200);
     Serial.println("\n\nStart");
 }
