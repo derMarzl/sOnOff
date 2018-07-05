@@ -14,6 +14,11 @@
 #define TCP_Server_benutzen
 #define TCP_Port    1337
 
+#define Netzwerkname  sOnnOff
+#define Passwort  Poweronoff
+
+#define AP_Mode
+
 #define LED1    13
 
 //#define LED2        // Hardwareänderung nötig, eintragen mit welcher GPIO Pin Nummer die LED verbunden wurde

@@ -23,15 +23,39 @@ void setup() {
     // Serialport initialisieren
     #ifdef Serialport_benutzen
         Serial.begin(74880);
-        Serial.println("\n\nStart");
+        Serial.println("\n\nStart\n");
     #endif
 
     // WLAN initialisieren
+    #ifdef AP_Mode
 
+
+    #else
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(Netzwerkname, Passwort);
+
+    // Wait for connection
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      #ifdef Serialport_benutzen
+        Serial.print(".");
+      #endif
+    }
+    #ifdef Serialport_benutzen
+      Serial.println("");
+      Serial.print("verbunden mit: ");
+      Serial.println(ssid);
+      Serial.print("IP Adresse: ");
+      Serial.println(WiFi.localIP());
+    #endif
+
+
+    #endif
 
 
     // Webserver initialisieren
     #ifdef WebServer_benutzen
+// test
 
     #endif
 
@@ -49,6 +73,8 @@ void loop() {
     // put your main code here, to run repeatedly:
     testfunkion1();
 
+
+    //blinken
     #ifdef Serialport_benutzen
         Serial.println("on");
     #endif
